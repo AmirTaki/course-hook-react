@@ -6,9 +6,10 @@
 @layer utilities  {
   .btn-custom {
     @apply flex items-center justify-center;
-    @apply w-[50px] h-[35px];
+    @apply w-fit h-[38px];
     @apply border-1 border-white rounded-md;
-    @apply transition-all duration-500
+    @apply transition-all duration-500;
+    @apply p-2
   }
   .btn-custom:hover {
     @apply border-2 border-red-500;
