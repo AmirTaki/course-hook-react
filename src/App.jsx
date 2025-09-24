@@ -2,6 +2,7 @@
 import './App.css'
 import UseEffectExampale from './hooks/use-effect'
 import AppUseEffect from './hooks/use-effect/homePage'
+import UseLayoutEffectExample from './hooks/use-layoutEffect'
 import UseStateExample from './hooks/use-state'
 import Test from './test'
 
@@ -9,7 +10,7 @@ function App() {
 
 
   return (
-    <div className='flex  h-[auto] w-[100%] bg-black text-gray-200 flex-col gap-3'>
+    <div className='flex  h-[100vh] w-[100%]  bg-black text-gray-200 flex-col gap-3'>
       
       {/* use state  */}
       {/* <UseStateExample /> */}
@@ -18,8 +19,16 @@ function App() {
       {/* <UseEffectExampale /> */}
 
       {/* use effect part 2 */}
-      <AppUseEffect />
-      
+      {/* <AppUseEffect /> */}
+
+
+      {/* use Layout effect */}
+      <UseLayoutEffectExample />
+ 
+
+
+
+      {/* <Test /> */}
     </div>
   )
 }

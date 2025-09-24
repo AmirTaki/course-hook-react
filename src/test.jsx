@@ -1,45 +1,54 @@
-import { useState } from "react"
-import { flushSync } from "react-dom"
+import { use, useEffect, useState } from "react"
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom"
+
+
+
+const HomePage = () => {
+    useEffect(()=> {
+        return() => {
+            console.log('un mount home page')
+        }
+    })
+    return(
+        <div className="bg-blue-500">
+            <h1>home </h1>
+        </div>
+    )
+}
+const Page1 = () => {
+    return(
+        <>
+            <h1> page 1</h1>
+        </>
+    )
+}
+const Page2 = () => {
+    return(
+        <>
+            <h1> page 2</h1>
+        </>
+    )
+}
 
 const Test = () => {
-
-    const [state, setState] = useState({
-        color : true,
-        conter : 0
-    })
-
-    const increment = () => {
-        setState(() => ({...state, conter : state.conter + 1, color: true}))
-        flushSync(() => setState((prev) => ({...state, conter : state.conter + 1, color: true})))
-        // setState({...state, conter : state.conter + 1, color: true})
-
-    }
-    const decrement = () => {
-        setState({...state, conter : state.conter - 1, color: false})
-
-    }
-
-    // const [conter, setConter] =  useState (0)
-    // const [color, setColor] = useState('red')
-    // const increment = () => {
-    //     setConter((conter) => (conter + 1))
-    //     // flushSync(() => setConter((conter) => (conter + 1)))    
-    //     // flushSync(() => setConter((conter) => (conter + 1))) 
-    //     setColor('blue')   
-    // }
-
-    // const decrement = () => {
-    //     flushSync(() =>setConter((conter) => (conter - 1)))
-    //     flushSync(() =>setConter((conter) => (conter - 1)))
-    //     // setConter((conter) => (conter - 1))
-        
-    // }
-    // console.log('render')
+    
     return (
         <>
-            <div className={`${state.color ? "text-blue-500": "text-red-500"}`}>{state.conter}</div> 
-            <button className="btn-custom" onClick={increment}>+</button>
-            <button className="btn-custom" onClick={decrement}>-</button>
+            <BrowserRouter>
+                <div className="flex flex-row bg-amber-900">
+                    <Link to = "/home">home</Link>
+                    <Link to = "/page1">page1</Link>
+                    <Link to = "/page2">page2</Link>
+                </div>
+      
+
+                <Routes>
+                    <Route path = "/home" element = {<HomePage />}></Route>
+                    <Route path = "/page1" element = {<Page1 />}></Route>
+                    <Route path = "/page2" element = {<Page2 />}></Route>
+                </Routes>
+            </BrowserRouter>
+
         </>
     )
 }

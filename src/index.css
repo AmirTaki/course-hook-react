@@ -15,6 +15,10 @@
     @apply border-2 border-red-500;
     @apply text-gray-500 cursor-pointer scale-110
   }
+
+  .input-custom {
+    @apply border-2 border-red-600
+  }
 }
 
 
