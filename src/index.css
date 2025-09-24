@@ -17,7 +17,13 @@
   }
 
   .input-custom {
-    @apply border-2 border-red-600
+    @apply border-2 border-red-600;
+    @apply w-100 h-15 m-10;
+    @apply text-3xl;
+    @apply text-gray-400
+  }
+  .input-custom:hover{
+    @apply border-2 border-blue-600;
   }
 }
 

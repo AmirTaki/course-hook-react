@@ -3,6 +3,7 @@ import './App.css'
 import UseEffectExampale from './hooks/use-effect'
 import AppUseEffect from './hooks/use-effect/homePage'
 import UseLayoutEffectExample from './hooks/use-layoutEffect'
+import UseReducerExample from './hooks/use-reducer'
 import UseStateExample from './hooks/use-state'
 import Test from './test'
 
@@ -23,7 +24,10 @@ function App() {
 
 
       {/* use Layout effect */}
-      <UseLayoutEffectExample />
+      {/* <UseLayoutEffectExample /> */}
+
+      {/* use reducer   */}
+      <UseReducerExample />
  
 
 
