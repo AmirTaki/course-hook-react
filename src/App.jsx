@@ -5,6 +5,7 @@ import UseEffectExampale from './hooks/use-effect'
 import AppUseEffect from './hooks/use-effect/homePage'
 import UseLayoutEffectExample from './hooks/use-layoutEffect'
 import UseReducerExample from './hooks/use-reducer'
+import UseRefExample from './hooks/use-ref/UseRefExample'
 import UseStateExample from './hooks/use-state'
 import Test from './test'
 
@@ -31,9 +32,10 @@ function App() {
       {/* <UseReducerExample /> */}
 
       {/* use context */}
-      <UseContextExample />
+      {/* <UseContextExample /> */}
  
-
+      {/* use ref  */}
+       <UseRefExample />
 
 
       {/* <Test /> */}
