@@ -1,48 +1,9 @@
 import { useEffect, useRef, useState } from "react"
 
 const Test = () => {
-    const [name, setName] = useState('')
-    const [conter, setConter] = useState(0)
-    const conterRef =  useRef(0)
-    const inputRef = useRef(null)
-    const previesRef = useRef('')
 
-    // useEffect(() => {
-    //     setConter(conter + 1);
-    // }, [name])
-
-    useEffect(() => {
-        conterRef.current += 1
-    },[name])
-
-    useEffect(() => {
-        previesRef.current = name
-    }, [name])
     return (
-        <div className="flex flex-col m-10">
-            <input 
-                type="text" 
-                className="input-custom" 
-                onChange={(e) => {setName(e.target.value)}}
-                ref = {inputRef}
-            />
-
-            <div className="">name is :  {name}</div>
-            <div className="">previes name is :  {previesRef.current}</div>
-            <div className="">conter is : {conter}</div>
-            <div className="">ref Conter : {conterRef.current}</div>
-
-
-
-
-            <button 
-                className="btn-custom my-4"
-                onClick={() => {
-                    inputRef.current.style.backgroundColor = 'white'
-                    inputRef.current.style.color = 'black'
-                }}
-            >click change input</button>
-        </div> 
+        <></>
     )
 }
 export default Test
