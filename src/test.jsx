@@ -1,42 +1,48 @@
-import { useReducer, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 const Test = () => {
-    
-    const reducer = (state, action) => {
-        switch(action.type){
-            case 'add' : 
-            return [...state, {
-                value : action.payload.value,
-                active : false,
-                id : Date.now()
-            }]
-            case "remove" : 
-            return [...state.filter((item) => (item.id !== action.pyaload.id)) ]
-            case "active" : 
+    const [name, setName] = useState('')
+    const [conter, setConter] = useState(0)
+    const conterRef =  useRef(0)
+    const inputRef = useRef(null)
+    const previesRef = useRef('')
 
+    // useEffect(() => {
+    //     setConter(conter + 1);
+    // }, [name])
 
-            return [...state.map((item) => ({...item, active : item.id === action.payload.id ? !item.active : item.active}))]
+    useEffect(() => {
+        conterRef.current += 1
+    },[name])
 
-        }
-    }
-    
-
-    const [state, dispatch] =  useReducer(reducer, [])
-    const inpuRef  =  useRef()
+    useEffect(() => {
+        previesRef.current = name
+    }, [name])
     return (
-        <>
-            <input type="text"  className="input-custom" ref  = {inpuRef}/>
-            <button onClick={()=>{dispatch({type : 'add', payload : {value : inpuRef.current.value }})}} className="btn-custom">add</button>
-     
-            {state.map((item) => (
-                <div key = {item.id} className={`flex ${item.active ? "text-green-500!" : "text-red-500!"}`}>
-                    <div className="">{item.value}, {item.id}</div>
-                    <button className="btn-custom" onClick={() => {dispatch({type : 'remove' , pyaload : {id : item.id}})}}>remove</button>
-                    <button className="btn-custom" onClick={() => {dispatch({type : 'active' , payload : {id : item.id}})}}>{item.active ? "deActive" : "active"}</button>
-                    <hr />
-                </div>
-            ))}
-        </>
+        <div className="flex flex-col m-10">
+            <input 
+                type="text" 
+                className="input-custom" 
+                onChange={(e) => {setName(e.target.value)}}
+                ref = {inputRef}
+            />
+
+            <div className="">name is :  {name}</div>
+            <div className="">previes name is :  {previesRef.current}</div>
+            <div className="">conter is : {conter}</div>
+            <div className="">ref Conter : {conterRef.current}</div>
+
+
+
+
+            <button 
+                className="btn-custom my-4"
+                onClick={() => {
+                    inputRef.current.style.backgroundColor = 'white'
+                    inputRef.current.style.color = 'black'
+                }}
+            >click change input</button>
+        </div> 
     )
 }
 export default Test

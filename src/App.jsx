@@ -3,6 +3,7 @@ import './App.css'
 import UseContextExample from './hooks/use-context'
 import UseEffectExampale from './hooks/use-effect'
 import AppUseEffect from './hooks/use-effect/homePage'
+import UseImperativeHandleExample from './hooks/use-imperaiveHandle'
 import UseLayoutEffectExample from './hooks/use-layoutEffect'
 import UseReducerExample from './hooks/use-reducer'
 import UseRefExample from './hooks/use-ref/UseRefExample'
@@ -35,8 +36,10 @@ function App() {
       {/* <UseContextExample /> */}
  
       {/* use ref  */}
-       <UseRefExample />
+      {/* <UseRefExample /> */}
 
+      {/* use imperative handle */}
+      <UseImperativeHandleExample />
 
       {/* <Test /> */}
     </div>

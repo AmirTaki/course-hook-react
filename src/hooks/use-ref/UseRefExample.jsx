@@ -11,7 +11,7 @@ const UseRefExample = () => {
 
 
     useEffect(() => {
-    // setRenderCount((prevRenderCount) => (prevRenderCount + 1))
+        // setRenderCount((prevRenderCount) => (prevRenderCount + 1))
         renderCount.current += 1
     })
    
@@ -22,7 +22,7 @@ const UseRefExample = () => {
 
     useEffect(() => {
         prevsName.current = name
-    },[name])
+    }, [name])
 
     return(
         <div>
