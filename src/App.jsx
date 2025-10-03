@@ -1,5 +1,6 @@
 
 import './App.css'
+import UseCallBackExample from './hooks/use-callback'
 import UseContextExample from './hooks/use-context'
 import UseEffectExampale from './hooks/use-effect'
 import AppUseEffect from './hooks/use-effect/homePage'
@@ -43,7 +44,10 @@ function App() {
       {/* <UseImperativeHandleExample /> */}
 
       {/* use Memo */}
-      <UseMemoExample />
+      {/* <UseMemoExample /> */}
+
+      {/* use callback */}
+      <UseCallBackExample />
 
       {/* <Test /> */}
     </div>
