@@ -1,30 +1,31 @@
-import { useEffect, useMemo, useRef, useState } from "react"
+import { useCallback, useEffect, useMemo, useRef, useState } from "react"
+
 
 const Test = () => {
-    const [dark, setDark] = useState(false) 
-    const [number, setNumber] = useState(0)
-    
-    const doubleNumber = useMemo(() => {
-        for(let i = 0 ; i < 1000000000; i++){
-        }
-        return number * 2
-    }, [number]) 
 
+    const [number, setNumber] = useState('')
+    const [dark, setDark] = useState(true)
 
+    const getItems = useCallback((inc) => {
+        return [number, number * inc, number * inc + 1 ]
+    }, [number])
+
+    const Theme =  {
+        backgroundColor  : dark ? 'black' : "white",
+        color : dark ? 'white' : 'black'
+    }
     return (
-        <div className={`flex flex-col ${dark ? "bg-gray-300" : "bg-black"}`}>
+        <div style={Theme} className="flex flex-col">
             <input 
                 type="number" 
-                className={`input-custom ${dark ? "bg-white text-black!" : "bg-black text-white"}`} 
+                className="input-custom" 
                 onChange={(e) => {setNumber(e.target.value)}}
             />
-            <button 
-                className="btn-custom"
-                onClick={() => {setDark((prevDark) => (!prevDark))}}    
-            >theme chagne</button>
 
-            <div className={`${dark ? "text-white " : "text-blue-800"}`}>{number}</div>
-            <div className={`${dark ? "text-white " : "text-blue-800"}`}>{doubleNumber}</div>
+            <button onClick={() => {setDark((preDark) => (!preDark))}} className="btn-custom">changeTheme</button>
+            <div className="">number :  {number}</div>
+
+            <LinkTe  getItems={getItems}/>
         </div>
     )
 }

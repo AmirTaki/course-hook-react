@@ -1,4 +1,3 @@
-
 import './App.css'
 import UseCallBackExample from './hooks/use-callback'
 import UseContextExample from './hooks/use-context'
@@ -10,6 +9,7 @@ import UseMemoExample from './hooks/use-memo'
 import UseReducerExample from './hooks/use-reducer'
 import UseRefExample from './hooks/use-ref/UseRefExample'
 import UseStateExample from './hooks/use-state'
+import UseTransitionExample from './hooks/use-transition'
 import Test from './test'
 
 function App() {
@@ -47,7 +47,11 @@ function App() {
       {/* <UseMemoExample /> */}
 
       {/* use callback */}
-      <UseCallBackExample />
+      {/* <UseCallBackExample /> */}
+
+      {/* use transition  */}
+      <UseTransitionExample />
+ 
 
       {/* <Test /> */}
     </div>
