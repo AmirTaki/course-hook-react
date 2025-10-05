@@ -1,49 +1,47 @@
+import { use, useDeferredValue } from "react"
 import { useCallback, useEffect, useMemo, useRef, useState, useTransition } from "react"
 
 
 const Test = () => {
-
     const api = async () => {
-        const res = await fetch("https://jsonplaceholder.typicode.com/comments")
-        const data  = await res.json()
-        setList(data)
-        setSearch(data)
+        try {
+
+            await fetch('https://jsonplaceholder.typicode.com/comments').then(resp => resp.json()).then(
+                res => {
+                    setList(res)
+                }
+            )
+        }
+        catch(e) {
+            console.log(e)
+        }
     }
 
-    useEffect(() => {
-        api();
-    }, [])
-
+    useEffect(() =>{api()}, [])
+    const [name, setName] =  useState('')
     const [list, setList] = useState([])
-    const [search, setSearch] = useState(list)
-    const [value, setValue] = useState('')
-    const [ispending, TrnsitionHoock] =  useTransition()
-   
-    const found = (e) => {
-        const {value} = e.target
-        setValue(value)
-        TrnsitionHoock(() => {
-            setSearch( list.filter((item) => (item.name.includes(value))))
-        }) 
+    const deferredValue =   useDeferredValue(name)
+    const handleChange = (e) => {
+        setName(e.target.value)
     }
+    const search = useMemo( () => {
+        return list.filter((item) => item.name.includes(name))
+    } , [deferredValue])
     return (
         <div  className="flex flex-col">
-                <input 
-                    type="text"
-                    className="input-custom" 
-                    value = {value}
-                    onChange={found}
-                />
+            <input 
+                type="text" 
+                className="input-custom"
+                onChange={handleChange}    
+                value = {name}
+            />
 
-                {ispending ? (<div>is loading .....</div>) :(
-
-                    search.map((item) => {
-                    return(
-                        <div key = {item.id}>{item.name}</div>
-                    )
-                })) }
-                
-        </div>
+            {search.map((item) => {
+                return (
+                    <div key = {item.id}> {item.name} </div>
+                )
+            })}
+        </div>  
 
     )
 }

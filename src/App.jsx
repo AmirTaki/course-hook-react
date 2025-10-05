@@ -10,9 +10,9 @@ import UseReducerExample from './hooks/use-reducer'
 import UseRefExample from './hooks/use-ref/UseRefExample'
 import UseStateExample from './hooks/use-state'
 import UseTransitionExample from './hooks/use-transition'
-import Test from './test'
+import UseFetchExample from './hooks/use-fetch'
 import UseDeferredValueExample from './hooks/use-deferredValue'
-
+import Test from './test'
 
 function App() {
 
@@ -55,7 +55,10 @@ function App() {
       {/* <UseTransitionExample /> */}
  
       {/* use deferred value */}
-      <UseDeferredValueExample />
+      {/* <UseDeferredValueExample /> */}
+
+      {/* use fetch  */}
+      <UseFetchExample />
 
       {/* <Test /> */}
     </div>
