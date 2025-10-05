@@ -11,6 +11,8 @@ import UseRefExample from './hooks/use-ref/UseRefExample'
 import UseStateExample from './hooks/use-state'
 import UseTransitionExample from './hooks/use-transition'
 import Test from './test'
+import UseDeferredValueExample from './hooks/use-deferredValue'
+
 
 function App() {
 
@@ -50,8 +52,10 @@ function App() {
       {/* <UseCallBackExample /> */}
 
       {/* use transition  */}
-      <UseTransitionExample />
+      {/* <UseTransitionExample /> */}
  
+      {/* use deferred value */}
+      <UseDeferredValueExample />
 
       {/* <Test /> */}
     </div>

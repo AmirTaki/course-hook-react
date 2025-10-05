@@ -1,32 +1,50 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react"
+import { useCallback, useEffect, useMemo, useRef, useState, useTransition } from "react"
 
 
 const Test = () => {
 
-    const [number, setNumber] = useState('')
-    const [dark, setDark] = useState(true)
+    const api = async () => {
+        const res = await fetch("https://jsonplaceholder.typicode.com/comments")
+        const data  = await res.json()
+        setList(data)
+        setSearch(data)
+    }
 
-    const getItems = useCallback((inc) => {
-        return [number, number * inc, number * inc + 1 ]
-    }, [number])
+    useEffect(() => {
+        api();
+    }, [])
 
-    const Theme =  {
-        backgroundColor  : dark ? 'black' : "white",
-        color : dark ? 'white' : 'black'
+    const [list, setList] = useState([])
+    const [search, setSearch] = useState(list)
+    const [value, setValue] = useState('')
+    const [ispending, TrnsitionHoock] =  useTransition()
+   
+    const found = (e) => {
+        const {value} = e.target
+        setValue(value)
+        TrnsitionHoock(() => {
+            setSearch( list.filter((item) => (item.name.includes(value))))
+        }) 
     }
     return (
-        <div style={Theme} className="flex flex-col">
-            <input 
-                type="number" 
-                className="input-custom" 
-                onChange={(e) => {setNumber(e.target.value)}}
-            />
+        <div  className="flex flex-col">
+                <input 
+                    type="text"
+                    className="input-custom" 
+                    value = {value}
+                    onChange={found}
+                />
 
-            <button onClick={() => {setDark((preDark) => (!preDark))}} className="btn-custom">changeTheme</button>
-            <div className="">number :  {number}</div>
+                {ispending ? (<div>is loading .....</div>) :(
 
-            <LinkTe  getItems={getItems}/>
+                    search.map((item) => {
+                    return(
+                        <div key = {item.id}>{item.name}</div>
+                    )
+                })) }
+                
         </div>
+
     )
 }
 export default Test
