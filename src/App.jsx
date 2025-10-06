@@ -13,10 +13,10 @@ import UseTransitionExample from './hooks/use-transition'
 import UseFetchExample from './hooks/use-fetch'
 import UseDeferredValueExample from './hooks/use-deferredValue'
 import UseDebounceExample from './hooks/use-debounce'
+import UseKeyDownExapmle from './hooks/use-keyDown'
 import Test from './test'
 
 function App() {
-
 
   return (
     <div className='flex  h-[100vh] w-[100%]  bg-black text-gray-200 flex-col gap-3'>
@@ -62,7 +62,10 @@ function App() {
       {/* <UseFetchExample /> */}
 
       {/* use debounce */}
-      <UseDebounceExample />
+      {/* <UseDebounceExample /> */}
+
+      {/* use key down  */}
+      <UseKeyDownExapmle />
 
       {/* <Test /> */}
     </div>

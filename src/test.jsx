@@ -1,47 +1,18 @@
-import { use, useDeferredValue } from "react"
-import { useCallback, useEffect, useMemo, useRef, useState, useTransition } from "react"
+import { useCallback, useEffect, useState } from "react"
+
 
 
 const Test = () => {
-    const api = async () => {
-        try {
-
-            await fetch('https://jsonplaceholder.typicode.com/comments').then(resp => resp.json()).then(
-                res => {
-                    setList(res)
-                }
-            )
-        }
-        catch(e) {
-            console.log(e)
-        }
-    }
-
-    useEffect(() =>{api()}, [])
-    const [name, setName] =  useState('')
-    const [list, setList] = useState([])
-    const deferredValue =   useDeferredValue(name)
-    const handleChange = (e) => {
-        setName(e.target.value)
-    }
-    const search = useMemo( () => {
-        return list.filter((item) => item.name.includes(name))
-    } , [deferredValue])
+  
     return (
-        <div  className="flex flex-col">
-            <input 
-                type="text" 
-                className="input-custom"
-                onChange={handleChange}    
-                value = {name}
-            />
-
-            {search.map((item) => {
-                return (
-                    <div key = {item.id}> {item.name} </div>
-                )
-            })}
-        </div>  
+      <div className="flex flex-col ">
+        <input 
+            type="text" 
+            className="input-custom"
+         
+        />
+       
+      </div> 
 
     )
 }
