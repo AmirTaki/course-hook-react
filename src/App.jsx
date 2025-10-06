@@ -12,6 +12,7 @@ import UseStateExample from './hooks/use-state'
 import UseTransitionExample from './hooks/use-transition'
 import UseFetchExample from './hooks/use-fetch'
 import UseDeferredValueExample from './hooks/use-deferredValue'
+import UseDebounceExample from './hooks/use-debounce'
 import Test from './test'
 
 function App() {
@@ -58,7 +59,10 @@ function App() {
       {/* <UseDeferredValueExample /> */}
 
       {/* use fetch  */}
-      <UseFetchExample />
+      {/* <UseFetchExample /> */}
+
+      {/* use debounce */}
+      <UseDebounceExample />
 
       {/* <Test /> */}
     </div>
